@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Banco Filipinas</title>
+</head>
+
+<body>
+  <script>
+    let balance = 0;
+    let choice;
+
+    while (true) {
+      choice = prompt(
+        "Welcome to Banco Filipinas!\n\n" +
+        "Choose an option:\n" +
+        "1. Deposit\n" +
+        "2. Withdraw\n" +
+        "3. Check Balance\n" +
+        "4. Exit/Clear\n\n" +
+        "Enter your choice (1-4):"
+      );
+
+      choice = Number(choice);
+
+      /* DEPOSIT */
+
+      if (choice === 1) {
+        let amount = Number(prompt("Enter amount to deposit:"));
+        if (amount > 0) {
+          balance += amount;
+          alert("Deposited ₱" + amount + "\n" + "Current balance ₱" + balance + "\n\n" + "Click \"OK\" to Proceed.");
+        } else {
+          alert("Invalid amount. Please try again.");
+        }
+
+        /* WITHRAW */
+
+      } else if (choice === 2) {
+        let amount = Number(prompt("Enter amount to withdraw:"));
+        if (amount > 0 && amount <= balance) {
+          balance -= amount;
+          alert("Withdrew ₱" + amount + "\n" + "Current balance ₱" + balance + "\n\n" + "Click \"OK\" to Proceed.");
+        } else if (amount > balance) {
+          alert("Not enough balance!");
+        } else {
+          alert("Invalid amount. Please try again.");
+        }
+
+        /* CHECK BALANCE */
+
+      } else if (choice === 3) {
+        alert("Your current balance is: ₱" + balance + "\n\n" + "Click \"OK\" to Proceed.");
+
+        /* EXIT */
+
+      } else if (choice === 4) {
+        alert("Thank you for using Banco Filipinas!" + "\n\n" + "Click \"OK\" to Exit.");
+        break;
+
+      } else {
+        alert("Invalid choice. Please enter 1–4." + "\n\n" + "Click \"OK\" to Proceed.");
+      }
+    }
+  </script>
+</body>
+
+</html>
